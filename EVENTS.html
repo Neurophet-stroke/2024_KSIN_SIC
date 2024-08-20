@@ -12,7 +12,7 @@
 	<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 	<!-- Fonts -->
 	<link href="https://fonts.googleapis.com" rel="preconnect">
-	<link href="https://fonts.gstatic.com" rel="preconnect" croassorigin>
+	<link href="https://fonts.gstatic.com" rel="preconnect">
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
 	<!-- Main CSS File -->
 	<link href="assets/css/main.css" rel="stylesheet">
@@ -428,8 +428,7 @@
 	</div>
 </header>
 
-<body>
-	<div class="title" style="display: flex; justify-content: center; align-items: center;  ">공사중.............</div>
+<body> 
 
 	<form id="form" class="container" method="POST" style="align-items: center; justify-content: center;">
 		<div class="event-container">
@@ -479,10 +478,9 @@
 					<label class="label">진료과/소속부서</label>
 					<div class="container" id="checkbox-container">
 						<div class="checkbox-wrapper-1">
-							<input type="checkbox" name="영상의학과" id="example-1" class="substituted" aria-hidden="true" onclick="toggleCheckbox('group1', this)"/>
-							<label class="label" for="example-1">영상의학과</label>
-						</div>
-					
+							<input type="checkbox" name="영상의학과" id="example-1" class="substituted" aria-hidden="true" value="Yes" onclick="toggleCheckbox('group1', this)"/>
+							<label class="label"  for="example-1" value="Y">영상의학과</label>
+						</div> 
 						<div class="checkbox-wrapper-1">
 							<input type="checkbox" name="신경과" id="example-2" class="substituted" aria-hidden="true" onclick="toggleCheckbox('group1', this)"/>
 							<label class="label" for="example-2">신경과</label>
@@ -494,7 +492,7 @@
 						</div>
 					
 						<div class="checkbox-wrapper-1">
-							<input id="example-5" name="기타" class="substituted" type="checkbox" aria-hidden="true" onclick="toggleCheckbox('group1', this)" />
+							<input id="example-5" name="other" class="substituted" type="checkbox" aria-hidden="true" onclick="toggleCheckbox('group1', this)" />
 							<label class="label" for="example-5">직접 입력</label>
 							<input name="other" type="text" class="text-input" style="max-width: 100%; box-sizing: border-box;" placeholder="항목에 없는 경우 직접 입력해주세요(예: 연구원)" />
 						</div>
@@ -519,12 +517,12 @@
 						<div class="checkbox-wrapper-1">
 							<input id="example-7" class="substituted" type="checkbox" aria-hidden="true" onclick="toggleCheckbox('group2', this)" />
 							<label class="label" for="example-7">Neurophet SCALE MRI</label>
-							<input name="SCALE MRI" type="text" class="text-input" style="max-width: 100%; box-sizing: border-box;" placeholder="CMBs 관련 연구를 많이 해요" />
+							<input name="SCALE MRI" type="text" class="text-input" style="max-width: 100%; box-sizing: border-box;" placeholder="CMBs 관련 연구를 많이 해요"  />
 						</div>
 						<div class="checkbox-wrapper-1">
 							<input id="example-8" class="substituted" type="checkbox" aria-hidden="true" onclick="toggleCheckbox('group2', this)" />
 							<label class="label" for="example-8">Neurophet SCALE MRA</label>
-							<input name="SCALE MRA" type="text" class="text-input" style="max-width: 100%; box-sizing: border-box;" placeholder="MRA 이미지를 가장 많이 봐요" />
+							<input name="SCALE MRA" type="text" class="text-input" style="max-width: 100%; box-sizing: border-box;" placeholder="MRA 이미지를 가장 많이 봐요"  />
 						</div>
 					</div>
 		  
@@ -644,10 +642,12 @@ border-color: aquamarine;
 	</script>
 	<!-- Main JS File -->
 	<script src="assets/js/main.js"></script>
-	<!-- 체크박스1 -->
-	<script>
 
-document.getElementById("form").addEventListener("submit", function(e) {
+
+
+
+	<script>
+	document.getElementById("form").addEventListener("submit", function(e) {
     e.preventDefault(); // Prevent the default form submission
     document.getElementById("message").textContent = "Submitting..";
     document.getElementById("message").style.display = "block";
@@ -655,7 +655,7 @@ document.getElementById("form").addEventListener("submit", function(e) {
     
     // Create and display a popup for the success message
     var popup = document.createElement("div");
-    popup.textContent = "제출 완료";
+    popup.textContent = "제출완료";
 
 
     // Basic styling for the popup
@@ -700,8 +700,11 @@ document.getElementById("form").addEventListener("submit", function(e) {
     }
     var formDataString = keyValuePairs.join("&");
 
+	
+	
+
     // Send a POST request to your Google Apps Script
-    fetch("https://script.google.com/macros/s/AKfycbxwcUN6ec_bJjy1PS_zMGhlrCl2nGlr_HDe6fGuVChYwde3ueEyIEW0qW8odt4TtE69/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbwSfnFWifKDqtLVoyBgttvVHofaUURsqLJ5qSt3o2H_dGWht-NSgzujRoMAklutjkwzPw/exec", {
         redirect: "follow",
         method: "POST",
         body: formDataString,
@@ -730,30 +733,10 @@ document.getElementById("form").addEventListener("submit", function(e) {
         document.getElementById("message").style.display = "block";
     });
 });
+</script>
 
-	</script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			var popupWrap = document.getElementById("popup-wrap");
-			var termsLink = document.getElementById("termsLink");
-			var closeButton = document.querySelector(".popup-close");
-			// "terms and conditions" 링크 클릭 시 팝업 열기
-			termsLink.addEventListener("click", function(e) {
-				e.preventDefault();
-				popupWrap.classList.add("active");
-			});
-			// 팝업 외부를 클릭하면 팝업 닫기
-			popupWrap.addEventListener("click", function(e) {
-				if (e.target === popupWrap || e.target.classList.contains("popup-overlay")) {
-					popupWrap.classList.remove("active");
-				}
-			});
-			// 엑스 버튼 클릭 시 팝업 닫기
-			closeButton.addEventListener("click", function(e) {
-				e.preventDefault();
-				popupWrap.classList.remove("active");
-			});
-		});
+
+<script>
 		document.addEventListener("DOMContentLoaded", function() {
 			var popupWrap = document.getElementById("popup-wrap");
 			var termsLink = document.getElementById("termsLink");
@@ -796,7 +779,7 @@ document.getElementById("form").addEventListener("submit", function(e) {
 				additionalInfo.style.display = 'none';  
 			}
 		});
-	</script>
+</script>
 
 
 <script>
