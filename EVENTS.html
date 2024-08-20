@@ -806,7 +806,7 @@ document.getElementById("form").addEventListener("submit", function(e) {
 		});
 	</script>
 	<script>
-		function toggleCheckbox(group, element) {
+function toggleCheckbox(group, element) {
     const checkboxes = document.querySelectorAll(`input[type="checkbox"][name=${group}]`);
     checkboxes.forEach(checkbox => {
         if (checkbox !== element) {
@@ -814,8 +814,7 @@ document.getElementById("form").addEventListener("submit", function(e) {
         }
     });
 }
-
-// 첫 번째 그룹을 'group1', 두 번째 그룹을 'group2'로 설정
+ 
 document.querySelectorAll('input[type="checkbox"]').forEach(input => {
     if (input.id.startsWith('example-1') || input.id.startsWith('example-2') || input.id.startsWith('example-3') || input.id.startsWith('example-5')) {
         input.name = 'group1';
@@ -823,6 +822,7 @@ document.querySelectorAll('input[type="checkbox"]').forEach(input => {
         input.name = 'group2';
     }
 });
+
 	</script>
 </body>
 
