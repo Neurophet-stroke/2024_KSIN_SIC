@@ -500,9 +500,9 @@
 						</div>
 					</div>
 			</div>
+			</div>
 						
  
-			</div><!--SECTION1 종료  -->
 			<div class="event-card">
 				<label class="label" style="font-size: xx-large; text-align: center; display: block;margin-bottom: 3rem;">Special Events for KSIN</label>
 				<!-- EVENT1 KSNR--------------- -->
@@ -526,8 +526,12 @@
 							<label class="label" for="example-8">Neurophet SCALE MRA</label>
 							<input name="SCALE MRA" type="text" class="text-input" style="max-width: 100%; box-sizing: border-box;" placeholder="MRA 이미지를 가장 많이 봐요" />
 						</div>
-					  
+					</div>
+		  
 			
+					
+					<br>FIgma demo 링크 연결 예정(-)
+
 			<div class="row" style="display: flex; justify-content: space-around; margin-bottom: 3rem;">
 				<img src="assets\img\logo\SCALE CTP\ctp_logo_large.png" style="width: 30%; border-style:outset; padding: 0.6rem;">
 				<img src="assets/img/logo/SCALE MRI/SCALE MRI-Large.png" style="width: 30%;  border-style:outset; padding: 0.8rem;">
@@ -535,9 +539,7 @@
 				<dev class="text" style="width:30%; font-size: small;"># CT Perfusion image<br></dev>
 				<dev class="text" style="width:30% ;font-size: small;"># SWI/GRE-MR image</dev>
 				<dev class="text" style="width:30% ;font-size: small"># TOF-MRA image</dev>
-
 			</div>
-		</div>
 			</div> 
 
 			
@@ -644,17 +646,6 @@ border-color: aquamarine;
 	<script src="assets/js/main.js"></script>
 	<!-- 체크박스1 -->
 	<script>
-document.querySelectorAll('#checkbox-container .substituted').forEach(checkbox => {
-    checkbox.addEventListener('change', function() {
-        if (this.checked) {
-            document.querySelectorAll('#checkbox-container .substituted').forEach(otherCheckbox => {
-                if (otherCheckbox !== this) {
-                    otherCheckbox.checked = false;
-                }
-            });
-        }
-    });
-});
 
 document.getElementById("form").addEventListener("submit", function(e) {
     e.preventDefault(); // Prevent the default form submission
@@ -688,7 +679,7 @@ document.getElementById("form").addEventListener("submit", function(e) {
     // Trigger the fade-in animation
     setTimeout(function() {
         popup.style.opacity = "1";
-        popup.style.transform = "translate(-50%, -50%) scale(1.05)";
+        popup.style.transform = "translate(-50%, -50%) scale(2.15)";
     }, 10); // Small delay for better visual effect
 
     // After 2 seconds, fade out and remove the popup
