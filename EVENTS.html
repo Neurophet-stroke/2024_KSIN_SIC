@@ -477,33 +477,31 @@
 					</div>
 					<!-- 진료과/소속부서 -->
 					<label class="label">진료과/소속부서</label>
-<div class="container" id="checkbox-container">
-    <div class="checkbox-wrapper-1">
-        <input type="checkbox" name="department" id="example-1" class="substituted" aria-hidden="true" onclick="toggleCheckbox('group1', this)"/>
-        <label class="label" for="example-1">영상의학과</label>
-    </div>
-
-    <div class="checkbox-wrapper-1">
-        <input type="checkbox" name="department" id="example-2" class="substituted" aria-hidden="true" onclick="toggleCheckbox('group1', this)"/>
-        <label class="label" for="example-2">신경과</label>
-    </div>
-
-    <div class="checkbox-wrapper-1">
-        <input type="checkbox" name="department" id="example-3" class="substituted" aria-hidden="true" onclick="toggleCheckbox('group1', this)"/>
-        <label class="label" for="example-3">신경외과</label>
-    </div>
-
-    <div class="checkbox-wrapper-1">
-        <input id="example-5" class="substituted" type="checkbox" aria-hidden="true" onclick="toggleCheckbox('group1', this)" />
-        <label class="label" for="example-5">직접 입력</label>
-        <input name="other" type="text" class="text-input" style="max-width: 100%; box-sizing: border-box;" placeholder="항목에 없는 경우 직접 입력해주세요(예: 연구원)" />
-    </div>
-</div>
+					<div class="container" id="checkbox-container">
+						<div class="checkbox-wrapper-1">
+							<input type="checkbox" name="department" id="example-1" class="substituted" aria-hidden="true" onclick="toggleCheckbox('group1', this)"/>
+							<label class="label" for="example-1">영상의학과</label>
+						</div>
+					
+						<div class="checkbox-wrapper-1">
+							<input type="checkbox" name="department" id="example-2" class="substituted" aria-hidden="true" onclick="toggleCheckbox('group1', this)"/>
+							<label class="label" for="example-2">신경과</label>
+						</div>
+					
+						<div class="checkbox-wrapper-1">
+							<input type="checkbox" name="department" id="example-3" class="substituted" aria-hidden="true" onclick="toggleCheckbox('group1', this)"/>
+							<label class="label" for="example-3">신경외과</label>
+						</div>
+					
+						<div class="checkbox-wrapper-1">
+							<input id="example-5" class="substituted" type="checkbox" aria-hidden="true" onclick="toggleCheckbox('group1', this)" />
+							<label class="label" for="example-5">직접 입력</label>
+							<input name="other" type="text" class="text-input" style="max-width: 100%; box-sizing: border-box;" placeholder="항목에 없는 경우 직접 입력해주세요(예: 연구원)" />
+						</div>
+					</div>
 			</div>
 						
-
-
-
+ 
 			</div><!--SECTION1 종료  -->
 			<div class="event-card">
 				<label class="label" style="font-size: xx-large; text-align: center; display: block;margin-bottom: 3rem;">Special Events for KSIN</label>
@@ -527,7 +525,8 @@
 							<input id="example-8" class="substituted" type="checkbox" aria-hidden="true" onclick="toggleCheckbox('group2', this)" />
 							<label class="label" for="example-8">Neurophet SCALE MRA</label>
 							<input name="SCALE MRA" type="text" class="text-input" style="max-width: 100%; box-sizing: border-box;" placeholder="MRA 이미지를 가장 많이 봐요" />
-						</div> 
+						</div>
+					  
 			
 			<div class="row" style="display: flex; justify-content: space-around; margin-bottom: 3rem;">
 				<img src="assets\img\logo\SCALE CTP\ctp_logo_large.png" style="width: 30%; border-style:outset; padding: 0.6rem;">
@@ -806,8 +805,10 @@ document.getElementById("form").addEventListener("submit", function(e) {
 			}
 		});
 	</script>
-	<script>
-function toggleCheckbox(group, element) {
+
+
+<script>
+	function toggleCheckbox(group, element) {
     const checkboxes = document.querySelectorAll(`input[type="checkbox"][name=${group}]`);
     checkboxes.forEach(checkbox => {
         if (checkbox !== element) {
@@ -815,7 +816,8 @@ function toggleCheckbox(group, element) {
         }
     });
 }
- 
+
+// 첫 번째 그룹을 'group1', 두 번째 그룹을 'group2'로 설정
 document.querySelectorAll('input[type="checkbox"]').forEach(input => {
     if (input.id.startsWith('example-1') || input.id.startsWith('example-2') || input.id.startsWith('example-3') || input.id.startsWith('example-5')) {
         input.name = 'group1';
@@ -824,7 +826,7 @@ document.querySelectorAll('input[type="checkbox"]').forEach(input => {
     }
 });
 
-	</script>
+</script>
 </body>
 
 </html>
