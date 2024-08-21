@@ -21,6 +21,27 @@
     <link href="assets/css/main.css" rel="stylesheet">
 
     <style>
+        .seven h1 {
+text-align: center;
+    font-size:30px; font-weight:300; color:#222; letter-spacing:1px;
+    text-transform: uppercase;
+
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    grid-template-rows: 27px 0;
+    grid-gap: 20px;
+    align-items: center;
+}
+
+.seven h1:after,.seven h1:before {
+    content: " ";
+    display: block;
+    border-bottom: 1px solid #c50000;
+    border-top: 1px solid #c50000;
+    height: 5px;
+  background-color:#f8f8f8;
+}
+
         /* General Styles */
         .event-container {
             display: flex;
@@ -294,7 +315,7 @@
         <div class="event-container">
             <!-- E-Guestbook Card -->
             <div class="event-card">
-                <label class="label" style="font-size: xx-large; text-align: center; display: block;margin-bottom: 2rem;">E-Guestbook</label>
+                <label class="label" style="font-size: xx-large; text-align: center; display: block;margin-bottom: 2rem;"><div class="seven"><h1>E-Guestbook</h1></div></label>
                 <div class="section1" style="margin-bottom: 5rem;">
                     <div class="row">
                         <div class="col-md-6">
@@ -357,7 +378,7 @@
 
             <!-- Special Events Card -->
             <div class="event-card">
-                <label class="label" style="font-size: xx-large; text-align: center; display: block;margin-bottom: 3rem;">Special Events for KSIN</label>
+                <label class="label" style="font-size: xx-large; text-align: center; display: block;margin-bottom: 3rem;"><div class="seven"><h1>Special events for ksin</h1></div></label>
 
                 <div class="field">
                     <label class="label">EVENT#1 What's my one pick?!</label>

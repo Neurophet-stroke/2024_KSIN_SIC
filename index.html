@@ -18,6 +18,166 @@
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    
+    <style> 
+         @import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
+ @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400");
+ .SECTION-DROP { 
+    text-align: center; 
+    margin-bottom: 3rem;
+    color: black; /* 기본 글자 색깔: 검정색 */
+    font-family: "Roboto";
+    font-size: 45px;
+    font-weight: 400;
+    overflow: hidden; 
+    position: relative; /* 자식 요소의 절대 위치를 기준으로 */
+}
+
+.dropping-texts {
+    display: inline-block;
+    width: 180px;
+    height: 36px;
+    position: relative; /* 자식 요소의 절대 위치를 상대적으로 조정 */
+    /* line-height를 설정하여 텍스트의 수직 정렬을 조정 */
+    line-height: 36px;
+    white-space: nowrap; /* 텍스트가 줄바꿈 없이 한 줄로 표현되도록 함 */
+
+}
+
+.dropping-texts > div {
+    font-size: 0px;
+    opacity: 0;
+    margin-left: -30px;
+    position: absolute;
+    font-weight: 300;
+    box-shadow: 0px 60px 25px -20px rgba(0, 0, 0, 0.5);
+}
+
+.dropping-texts > div:nth-child(1) {
+    animation: roll 5s linear infinite 0s, colorChange 5s linear infinite;
+    top: 0;
+    left: 0;
+}
+
+.dropping-texts > div:nth-child(2) {
+    animation: roll 5s linear infinite 1s, colorChange 5s linear infinite;
+    top: 0;
+    left: 0;
+}
+
+.dropping-texts > div:nth-child(3) {
+    animation: roll 5s linear infinite 2s, colorChange 5s linear infinite;
+    top: 0;
+    left: 0;
+}
+
+.dropping-texts > div:nth-child(4) {
+    animation: roll2 5s linear infinite 3s, colorChange 5s linear infinite;
+    top: 0;
+    left: 0;
+}
+
+@keyframes roll {
+    0% {
+        font-size: 0px;
+        opacity: 0;
+        margin-left: -30px;
+        margin-top: 0px;
+        transform: rotate(-25deg);
+    }
+    3% {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+    5% {
+        font-size: inherit;
+        opacity: 1;
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+    20% {
+        font-size: inherit;
+        opacity: 1;
+        margin-left: 0px;
+        margin-top: 0px;
+        transform: rotate(0deg);
+    }
+    27% {
+        font-size: 0px;
+        opacity: 0.5;
+        margin-left: 20px;
+        margin-top: 100px;
+    }
+    100% {
+        font-size: 0px;
+        opacity: 0;
+        margin-left: -30px;
+        margin-top: 0px;
+        transform: rotate(15deg);
+    }
+}
+
+@keyframes roll2 {
+    0% {
+        font-size: 0px;
+        opacity: 0;
+        margin-left: -30px;
+        margin-top: 0px;
+        transform: rotate(-25deg);
+    }
+    3% {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+    5% {
+        font-size: inherit;
+        opacity: 1;
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+    30% {
+        font-size: inherit;
+        opacity: 1;
+        margin-left: 0px;
+        margin-top: 0px;
+        transform: rotate(0deg);
+    }
+    37% {
+        font-size: 1500px;
+        opacity: 0;
+        margin-left: -1000px;
+        margin-top: -800px;
+    }
+    100% {
+        font-size: 0px;
+        opacity: 0;
+        margin-left: -30px;
+        margin-top: 0px;
+        transform: rotate(15deg);
+    }
+}
+
+@keyframes colorChange {
+    0% {
+        color: black; /* 기본 색깔: 검정색 */
+    }
+    25% {
+        color: #6a0dad; /* 연보라색 */
+    }
+    50% {
+        color: #9b59b6; /* 중간 보라색 */
+    }
+    75% {
+        color: #8e44ad; /* 어두운 보라색 */
+    }
+    100% {
+        color: black; /* 원래 색깔로 돌아옴 */
+    }
+}
+
+
+    </style> 
 </head>
 
 <body class="portfolio-details-page">
@@ -88,22 +248,31 @@
             </div>
         </div>
     </header>
+
+
+
     <main class="main">
-        <!-- Hero Section -->
-        <section id="hero">
-            <div class="hero" section dark-background coming-soon-section>
-                <img src="assets\img\cta-bg.jpg" class="kenburns-right dark dark-background">
-                <div class="container" data-aos="fade-up" data-aos-delay="100">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-12 text-center">
-                            <h2>COMING SOON</h2>
-                        </div>
-                        <div class="col-lg-6 text-center">
-                            <a href="#cards" class="btn-get-started">Get Started</a>
+
+            <!-- Hero Section -->
+            <section id="hero">
+                <div class="hero" section dark-background coming-soon-section>
+                    <img src="assets\img\cta-bg.jpg" class="kenburns-right dark dark-background">
+                    <div class="container" data-aos="fade-up" data-aos-delay="100">
+                        <div class="row justify-content-center">
+                            <div class="text-center SECTION-DROP"> Neurophet
+                                    <div class="dropping-texts">
+                                    <div><B>SCALE CTP</B></div>
+                                    <div><B>SCALE MRI</B></div>
+                                    <div><B>SCALE MRA</B></div>
+                                    <div>is comming soon!</div>
+                                    </div> </div>
+                            </div>
+                            <div class="col-lg-6 text-center">
+                                <a href="#cards" class="btn-get-started">Get Started</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-        </section>
+            </section>
         <!-- Cards Section -->
         <section id="cards" class="cards section">
             <div class="section-title" data-aos="fade-up">
