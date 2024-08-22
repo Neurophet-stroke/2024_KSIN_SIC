@@ -121,7 +121,7 @@
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
-            margin: 20px;
+            margin: 5px;
         }
 
         .event-card {
@@ -222,7 +222,7 @@
 
             .event-card {
                 width: 100%;
-                margin: 5px 0;
+                margin: 10px 0;
             }
 
             .row .col-md-6,
@@ -276,7 +276,7 @@
 <body> 
     
     <header id="header" class="header sticky-top" >  
-        <div class="background" style="background-image: linear-gradient( rgba(255, 255, 255, 0.3), rgba(0, 26, 255, 0.3) ),url(assets/img/BG_SEA.jpg);" > 
+        <div class="background" style="background-image: linear-gradient( rgba(255, 255, 255, 0.3), rgba(0, 26, 255, 0.3) ),url(assets/img/BG_SEA.jpg);"  > 
         <div class="waviy" style="text-align: center;">
             <span style="--i:1; font-size:25px;">K</span>
             <span style="--i:2; font-size:25px;">S</span>
@@ -315,7 +315,7 @@
                 <div class="event-container">
                     <!-- E-Guestbook Card -->
                     <div class="event-card">
-                        <label class="label" style="font-size: xx-large; text-align: center; display: block;margin-bottom: 2rem;">
+                        <label class="label" style="font-size: xx-large; text-align: center; display: block;margin-bottom: 1rem;">
                             <div class="seven">
                                 <h1><b>E-Guestbook</b></h1>
                             </div>
@@ -372,10 +372,6 @@
                                     <label class="label" for="example-3" style="font-weight: 400;">신경외과</label>
                                 </div>
                                 <div class="checkbox-wrapper-1">
-                                    <input type="checkbox" name="진료과" id="example-4" class="substituted" aria-hidden="true" value="재활의학과" onclick="toggleCheckbox('진료과', this)" />
-                                    <label class="label" for="example-4" style="font-weight: 400;">재활의학과</label>
-                                </div>
-                                <div class="checkbox-wrapper-1">
                                     <input id="example-5" name="진료과" class="substituted" type="checkbox" aria-hidden="true" onclick="toggleCheckbox('진료과', this)" />
                                     <label class="label" for="example-5" style="font-weight: 400;">직접 입력</label>
                                     <input name="other" type="text" class="text-input" style="max-width: 100%; box-sizing: border-box;" placeholder="항목에 없는 경우 직접 입력해주세요(예: 연구부서 등)" />
@@ -414,18 +410,24 @@
 <br>
 
                         <div class="field">
-                            <label class="label"><span style="background: linear-gradient(to top, #ff0000 1%, transparent 20%)">EVENT#2 Join our closed Beta-tester</span></label>
-                            <label class="label" style="font-weight: 500;">관심 제품을 가장 먼저 체험할 기회, 뉴로핏 비공식 베타 테스터를 모집합니다. 동료들과 참여할수록 더 큰 혜택이 기다리고 있어요. 뉴로핏 뇌졸중 솔루션의 시작, 함께 해보시겠어요? </label>
-                            <div class="container" id="checkbox-container">
-                                <div class="checkbox-wrapper-1">
-                                    <input id="example-9" class="substituted" type="checkbox" value="참여" name="EVENT3" aria-hidden="true" onclick="toggleCheckbox('group3', this)" />
-                                    <label class="label" for="example-9" style="font-weight: 500;"><b>네, 참여해볼게요!</b></label>
-                                </div>
-                                <div class="checkbox-wrapper-1">
-                                    <input id="example-10" class="substituted" type="checkbox" name="EVENT3"value="미참여"  aria-hidden="true" onclick="toggleCheckbox('group3', this)" />
-                                    <label class="label" for="example-10" style="font-weight: 500;"><b>아니요, 다음 기회에!</b></label>
-                                </div>
-                            </div>
+    <label class="label">
+        <span style="background: linear-gradient(to top, #ff0000 1%, transparent 20%)">EVENT#2 Join our closed Beta-tester</span>
+    </label>
+    <label class="label" style="font-weight: 500;">
+        관심 제품을 가장 먼저 체험할 기회, 뉴로핏 비공식 베타 테스터를 모집합니다. 동료들과 참여할수록 더 큰 혜택이 기다리고 있어요. 뉴로핏 뇌졸중 솔루션의 시작, 함께 해보시겠어요?
+    </label>
+    <div class="container" id="checkbox-container" style="display: flex; align-items: center; gap: 20px;">
+        <div class="checkbox-wrapper-1" style="display: flex; align-items: center;">
+            <input id="example-9" class="substituted" type="checkbox" value="참여" name="EVENT3" aria-hidden="true" onclick="toggleCheckbox('group3', this)" />
+            <label class="label" for="example-9" style="font-weight: 500; margin-left: 8px;"><b>네, 참여해볼게요!</b></label>
+        </div>
+        <div class="checkbox-wrapper-1" style="display: flex; align-items: center;">
+            <input id="example-10" class="substituted" type="checkbox" name="EVENT3" value="미참여" aria-hidden="true" onclick="toggleCheckbox('group3', this)" />
+            <label class="label" for="example-10" style="font-weight: 500; margin-left: 8px;"><b>아니요, 다음 기회에!</b></label>
+        </div>
+    </div>
+</div>
+
                         </div>
                     </div>
                 </div>  
