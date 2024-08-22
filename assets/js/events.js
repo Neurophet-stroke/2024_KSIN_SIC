@@ -139,3 +139,5 @@ document.getElementById("form").addEventListener("submit", function(e) {
             });
         });
     });
+
+    popup.style.transition = "opacity 0.5s ease, transform 0.5s ease"; // 모바일에서 부드러운 전환
