@@ -375,21 +375,18 @@ text-align: center;
 				<div class="field">
 					<label class="label">EVENT#2 Join our closed Beta-tester</label>
 					<label class="label" style="font-weight: 500;">뉴로핏 비공개 베타 테스터에 참여하시겠습니까?</label>
-				
-					<div class="container" style="display: flex; align-items: center;">
-						<!-- '예' 라디오 버튼 -->
-						<div class="checkbox-wrapper-1" style="display: flex; align-items: center; margin-right: 9rem;">
-							<input type="radio" id="yesOption" name="EVENT3" value="yes" style="margin-right: 5px;">
-							<label class="label" for="yesOption" style="margin: 0;">예</label>
-						</div>
-				
-						<!-- '아니오' 라디오 버튼 -->
-						<div class="checkbox-wrapper-1" style="display: flex; align-items: center;">
-							<input type="radio" id="noOption" name="EVENT3" value="no" checked style="margin-right: 5px;">
-							<label class="label" for="noOption" style="margin: 0;">아니오</label>
-						</div>
-					</div>
-				
+
+                    <div class="container" id="checkbox-container">
+                        <div class="checkbox-wrapper-1">
+                            <input id="example-9" class="substituted" type="checkbox" aria-hidden="true" onclick="toggleCheckbox('group3', this)" />
+                            <label class="label" for="example-9" style="font-weight: 500;"><b>예</b></label> 
+                        </div>
+                        <div class="checkbox-wrapper-1">
+                            <input id="example-10" class="substituted" type="checkbox" aria-hidden="true" onclick="toggleCheckbox('group3', this)" />
+                            <label class="label" for="example-10" style="font-weight: 500;"><b>아니오</b></label>
+                        </div> 
+                    </div>
+
 					<!-- 추가 입력 박스 -->
 					<div id="additional-info" style="display: none; margin: 2rem;" >
 						<label for="beta-tester-info">※ 함께 참여하고 싶은 동료가 있다면 기재해주세요</label>
