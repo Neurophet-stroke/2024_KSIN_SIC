@@ -2,459 +2,510 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<title>#EVENTS</title>
-	<meta content="" name="description">
-	<meta content="" name="keywords">
-	<!-- Favicons -->
-	<link href="assets/img/favicon.png" rel="icon">
-	<!-- Fonts -->
-	<link href="https://fonts.googleapis.com" rel="preconnect">
-	<link href="https://fonts.gstatic.com" rel="preconnect">
-	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-	<!-- Main CSS File -->
-	<link href="assets/css/main.css" rel="stylesheet">
-	<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-	<link href="assets/vendor/aos/aos.css" rel="stylesheet">
-	<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-	<link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-	<style>
-	.seven h1 {
-		text-align: center;
-		font-size: 30px;
-		font-weight: 300;
-		color: #222;
-		letter-spacing: 1px;
-		text-transform: uppercase;
-		display: grid;
-		grid-template-columns: 1fr max-content 1fr;
-		grid-template-rows: 27px 0;
-		grid-gap: 20px;
-		align-items: center;
-	}
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>#EVENTS</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <style>
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none; /* Hidden by default */
+        }
 
-	.seven h1:after,
-	.seven h1:before {
-		content: " ";
-		display: block;
-		border-bottom: 1px solid #c50000;
-		border-top: 1px solid #c50000;
-		height: 5px;
-		background-color: #f8f8f8;
-	}
+        /* Popup Container */
+        .popup_info {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 600px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none; /* Hidden by default */
+        }
 
-	/* General Styles */
-	.event-container {
-		display: flex;
-		justify-content: space-between;
-		flex-wrap: wrap;
-		margin: 20px;
-	}
+        .popup_info .row {
+            position: relative;
+            padding: 20px;
+        }
 
-	.event-card {
-		flex: 1;
-		margin: 10px;
-		padding: 20px;
-		background-color: #f9f9f9;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-		border-radius: 8px;
-		min-width: 47%;
-	}
+        .popup_info .btn_close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
 
-	.event-card img {
-		max-width: 100%;
-		height: auto;
-	}
+        .popup_info .head {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
 
-	.checkbox-wrapper-10 .tgl {
-		display: none;
-	}
+        .popup_info .scroll {
+            max-height: 300px;
+            overflow-y: auto;
+        }
 
-	.checkbox-wrapper-10 .tgl,
-	.checkbox-wrapper-10 .tgl * {
-		box-sizing: border-box;
-	}
+        .popup_info .body {
+            line-height: 1.6;
+        }
 
-	.checkbox-wrapper-10 .tgl+.tgl-btn {
-		display: block;
-		width: 4em;
-		height: 2em;
-		position: relative;
-		cursor: pointer;
-	}
+        .popup_info .t1 {
+            font-weight: bold;
+            margin-top: 10px;
+        }
 
-	.checkbox-wrapper-10 .tgl-flip+.tgl-btn {
-		padding: 2px;
-		transition: all 0.2s ease;
-		font-family: sans-serif;
-		perspective: 100px;
-	}
+        .popup_info .t2 {
+            margin: 5px 0;
+        }
 
-	.checkbox-wrapper-10 .tgl-flip+.tgl-btn:after,
-	.checkbox-wrapper-10 .tgl-flip+.tgl-btn:before {
-		display: inline-block;
-		transition: all 0.4s ease;
-		width: 100%;
-		text-align: center;
-		position: absolute;
-		line-height: 2em;
-		font-weight: bold;
-		color: #fff;
-		top: 0;
-		left: 0;
-		border-radius: 4px;
-	}
+        .popup_info .btn {
+            margin-top: 20px;
+            padding: 10px;
+            background: #007bff;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-	.checkbox-wrapper-10 .tgl-flip+.tgl-btn:after {
-		content: attr(data-tg-on);
-		background: #4E38CC;
-		transform: rotateY(-180deg);
-	}
+        .seven h1 {
+            text-align: center;
+            font-size: 30px;
+            font-weight: 300;
+            color: #222;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: grid;
+            grid-template-columns: 1fr max-content 1fr;
+            grid-template-rows: 27px 0;
+            grid-gap: 20px;
+            align-items: center;
+        }
 
-	.checkbox-wrapper-10 .tgl-flip+.tgl-btn:before {
-		background: #FF3A19;
-		content: attr(data-tg-off);
-	}
+        .seven h1:after,
+        .seven h1:before {
+            content: " ";
+            display: block;
+            border-bottom: 1px solid #c50000;
+            border-top: 1px solid #c50000;
+            height: 5px;
+            background-color: #f8f8f8;
+        }
 
-	.checkbox-wrapper-10 .tgl-flip:checked+.tgl-btn:before {
-		transform: rotateY(180deg);
-	}
+        /* General Styles */
+        .event-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
 
-	.checkbox-wrapper-10 .tgl-flip:checked+.tgl-btn:after {
-		transform: rotateY(0);
-		left: 0;
-		background: #4E38CC;
-	}
+        .event-card {
+            flex: 1;
+            margin: 10px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 47%;
+        }
 
-	.popup_request_btn {
-		cursor: pointer
-	}
+        .event-card img {
+            max-width: 100%;
+            height: auto;
+        }
 
-	.popup-content {
-		max-width: 90%;
-		height: auto;
-		overflow-y: auto;
-	}
+        .checkbox-wrapper-10 .tgl {
+            display: none;
+        }
 
-	.popup-body {
-		font-size: 14px;
-	}
+        .checkbox-wrapper-10 .tgl,
+        .checkbox-wrapper-10 .tgl * {
+            box-sizing: border-box;
+        }
 
-	/* Responsive Styles */
-	@media (max-width: 768px) {
-		.event-container {
-			flex-direction: column;
-			align-items: center;
-		}
+        .checkbox-wrapper-10 .tgl+.tgl-btn {
+            display: block;
+            width: 4em;
+            height: 2em;
+            position: relative;
+            cursor: pointer;
+        }
 
-		.event-card {
-			width: 100%;
-			margin: 10px 0;
-		}
+        .checkbox-wrapper-10 .tgl-flip+.tgl-btn {
+            padding: 2px;
+            transition: all 0.2s ease;
+            font-family: sans-serif;
+            perspective: 100px;
+        }
 
-		.row .col-md-6,
-		.row .col-md-4 {
-			width: 100%;
-		}
+        .checkbox-wrapper-10 .tgl-flip+.tgl-btn:after,
+        .checkbox-wrapper-10 .tgl-flip+.tgl-btn:before {
+            display: inline-block;
+            transition: all 0.4s ease;
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            line-height: 2em;
+            font-weight: bold;
+            color: #fff;
+            top: 0;
+            left: 0;
+            border-radius: 4px;
+        }
 
-		.checkbox-wrapper-1 {
-			width: 100%;
-			margin-bottom: 10px;
-		}
+        .checkbox-wrapper-10 .tgl-flip+.tgl-btn:after {
+            content: attr(data-tg-on);
+            background: #4E38CC;
+            transform: rotateY(-180deg);
+        }
 
-		.label {
-			font-size: 14px;
-		}
+        .checkbox-wrapper-10 .tgl-flip+.tgl-btn:before {
+            background: #FF3A19;
+            content: attr(data-tg-off);
+        }
 
-		.input {
-			font-size: 16px;
-			padding: 10px;
-		}
+        .checkbox-wrapper-10 .tgl-flip:checked+.tgl-btn:before {
+            transform: rotateY(180deg);
+        }
 
-		.control {
-			margin-top: 10px;
-			width: 100%;
-		}
+        .checkbox-wrapper-10 .tgl-flip:checked+.tgl-btn:after {
+            transform: rotateY(0);
+            left: 0;
+            background: #4E38CC;
+        }
 
-		.field {
-			margin-bottom: 15px;
-		}
+        .popup_request_btn {
+            cursor: pointer;
+        }
 
-		#submit-button {
-			width: 100%;
-			font-size: 16px;
-		}
+        .popup-content {
+            max-width: 90%;
+            height: auto;
+            overflow-y: auto;
+        }
 
-		.input-box {
-			width: 90vw;
-			max-width: 500px;
-			padding: 10px;
-			font-size: 16px;
-		}
+        .popup-body {
+            font-size: 14px;
+        }
 
-		.checkbox-wrapper-1 input[type="text"] {
-			width: 100%;
-			font-size: 14px;
-		}
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .event-container {
+                flex-direction: column;
+                align-items: center;
+            }
 
-		.popup-content {
-			padding: 20px;
-		}
+            .event-card {
+                width: 100%;
+                margin: 10px 0;
+            }
 
-		.popup-body {
-			font-size: 14px;
-		}
-	}
+            .row .col-md-6,
+            .row .col-md-4 {
+                width: 100%;
+            }
 
-	@media (max-width: 1025px) {
-		.header .type_row {
-			padding: 0 40px
-		}
+            .checkbox-wrapper-1 {
+                width: 100%;
+                margin-bottom: 10px;
+            }
 
-		body.banner .header {
-			top: 40px
-		}
+            .label {
+                font-size: 14px;
+            }
 
-		.header .gnb .head {
-			display: none
-		}
+            .input {
+                font-size: 16px;
+                padding: 10px;
+            }
 
-		.header .all_menu_btn {
-			right: 40px
-		}
+            .control {
+                margin-top: 10px;
+                width: 100%;
+            }
 
-		.header .row_r .language {
-			position: relative;
-			right: 330px
-		}
-	}
+            .field {
+                margin-bottom: 15px;
+            }
 
-	@media (max-width: 640px) {
-		.header .menu {
-			display: none
-		}
+            #submit-button {
+                width: 100%;
+                font-size: 16px;
+            }
 
-		.header .row_r .language {
-			position: relative;
-			right: 80px
-		}
-	}
-	</style>
+            .input-box {
+                width: 90vw;
+                max-width: 500px;
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            .popup_terms .scroll,
+            .popup_marketing .scroll {
+                max-height: 200px;
+            }
+        }
+    </style>
 </head>
-<header id="header" class="header sticky-top">
-	<div class="waviy" style="text-align: center; padding-top: 3rem;">
-		<span style="--i:1; font-size:25px;">K</span>
-		<span style="--i:2; font-size:25px;">S</span>
-		<span style="--i:3; font-size:25px;">I</span>
-		<span style="--i:4; font-size:25px; padding-right: 5px;">N</span>
-		<span style="--i:5; font-size:25px;">S</span>
-		<span style="--i:6; font-size:25px;">U</span>
-		<span style="--i:7; font-size:25px;">M</span>
-		<span style="--i:8; font-size:25px;">M</span>
-		<span style="--i:9; font-size:25px;">E</span>
-		<span style="--i:10; font-size:25px; padding-right: 5px;">R</span>
-		<span style="--i:11; font-size:25px;">I</span>
-		<span style="--i:12; font-size:25px;">n</span>
-		<span style="--i:13; font-size:25px;">t</span>
-		<span style="--i:14; font-size:25px;">e</span>
-		<span style="--i:15; font-size:25px;">n</span>
-		<span style="--i:16; font-size:25px;">s</span>
-		<span style="--i:17; font-size:25px;">i</span>
-		<span style="--i:18; font-size:25px;">v</span>
-		<span style="--i:19; font-size:25px; padding-right: 5px;">e</span>
-		<span style="--i:20; font-size:25px;">C</span>
-		<span style="--i:21; font-size:25px;">o</span>
-		<span style="--i:22; font-size:25px;">u</span>
-		<span style="--i:23; font-size:25px;">r</span>
-		<span style="--i:24; font-size:25px;">s</span>
-		<span style="--i:25; font-size:25px;padding-right: 5px;">e</span>
-		<span style="--i:26; font-size:25px;">2</span>
-		<span style="--i:27; font-size:25px;">0</span>
-		<span style="--i:28; font-size:25px;">2</span>
-		<span style="--i:29; font-size:25px;">4</span>
-	</div>
+<body>
+    <header id="header" class="header sticky-top">
+        <div class="waviy" style="text-align: center; padding-top: 3rem;">
+            <span style="--i:1; font-size:25px;">K</span>
+            <span style="--i:2; font-size:25px;">S</span>
+            <span style="--i:3; font-size:25px;">I</span>
+            <span style="--i:4; font-size:25px; padding-right: 5px;">N</span>
+            <span style="--i:5; font-size:25px;">S</span>
+            <span style="--i:6; font-size:25px;">U</span>
+            <span style="--i:7; font-size:25px;">M</span>
+            <span style="--i:8; font-size:25px;">M</span>
+            <span style="--i:9; font-size:25px;">E</span>
+            <span style="--i:10; font-size:25px; padding-right: 5px;">R</span>
+            <span style="--i:11; font-size:25px;">I</span>
+            <span style="--i:12; font-size:25px;">n</span>
+            <span style="--i:13; font-size:25px;">t</span>
+            <span style="--i:14; font-size:25px;">e</span>
+            <span style="--i:15; font-size:25px;">n</span>
+            <span style="--i:16; font-size:25px;">s</span>
+            <span style="--i:17; font-size:25px;">i</span>
+            <span style="--i:18; font-size:25px;">v</span>
+            <span style="--i:19; font-size:25px; padding-right: 5px;">e</span>
+            <span style="--i:20; font-size:25px;">C</span>
+            <span style="--i:21; font-size:25px;">o</span>
+            <span style="--i:22; font-size:25px;">u</span>
+            <span style="--i:23; font-size:25px;">r</span>
+            <span style="--i:24; font-size:25px;">s</span>
+            <span style="--i:25; font-size:25px;padding-right: 5px;">e</span>
+            <span style="--i:26; font-size:25px;">2</span>
+            <span style="--i:27; font-size:25px;">0</span>
+            <span style="--i:28; font-size:25px;">2</span>
+            <span style="--i:29; font-size:25px;">4</span>
+        </div>
+    </header>
 
-	<body>
-		<form id="form" class="container" method="POST" style="align-items: center; justify-content: center;">
-			<div class="event-container">
-				<!-- E-Guestbook Card -->
-				<div class="event-card">
-					<label class="label" style="font-size: xx-large; text-align: center; display: block;margin-bottom: 2rem;">
-						<div class="seven">
-							<h1><b>E-Guestbook</b></h1>
-						</div>
-					</label>
-					<div class="section1" style="margin-bottom: 5rem;">
-						<div class="row">
-							<div class="col-md-6">
-								<div class="field">
-									<label class="label">성함<h style="color: rgb(255, 0, 0)">*</h></label>
-									<div class="control">
-										<input class="input" type="text" placeholder="예: 김뉴로" name="성함" required />
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="field">
-									<label class="label">회사/기관명<h style="color: red;"> *</h></label>
-									<div class="control">
-										<input class="input" type="text" placeholder="예: 뉴로핏종합병원" name="회사/기관명" required />
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="field">
-									<label class="label">E-mail<h style="color: red;"> *</label>
-									<div class="control">
-										<input class="input" type="email" placeholder="예:neurophet@neurophet.com" name="E-mail" />
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="field">
-									<label class="label">연락처<h style="color: red;"> *</label>
-									<div class="control">
-										<input class="input" type="tel" placeholder="예:01029202002" name="연락처" />
-									</div>
-								</div>
-							</div>
-						</div>
-						<label class="label">진료과/소속부서</label>
-						<div class="container" id="checkbox-container">
-							<div class="checkbox-wrapper-1">
-								<input type="checkbox" name="진료과" id="example-1" class="substituted" aria-hidden="true" value="영상의학과" onclick="toggleCheckbox('진료과', this)" />
-								<label class="label" for="example-1" style="font-weight: 400;">영상의학과</label>
-							</div>
-							<div class="checkbox-wrapper-1">
-								<input type="checkbox" name="진료과" id="example-2" class="substituted" aria-hidden="true" value="신경과" onclick="toggleCheckbox('진료과', this)" />
-								<label class="label" for="example-2" style="font-weight: 400;">신경과</label>
-							</div>
-							<div class="checkbox-wrapper-1">
-								<input type="checkbox" name="진료과" id="example-3" class="substituted" aria-hidden="true" value="신경외과" onclick="toggleCheckbox('진료과', this)" />
-								<label class="label" for="example-3" style="font-weight: 400;">신경외과</label>
-							</div>
-							<div class="checkbox-wrapper-1">
-								<input id="example-5" name="진료과" class="substituted" type="checkbox" aria-hidden="true" onclick="toggleCheckbox('진료과', this)" />
-								<label class="label" for="example-5" style="font-weight: 400;">직접 입력</label>
-								<input name="other" type="text" class="text-input" style="max-width: 100%; box-sizing: border-box;" placeholder="항목에 없는 경우 직접 입력해주세요(예: 연구부서 등)" />
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Special Events Card -->
-				<div class="event-card">
-					<label class="label" style="font-size: xx-large; text-align: center; display: block;margin-bottom: 3rem;">
-						<div class="seven">
-							<h1><b>Special events for ksin</b></h1>
-						</div>
-					</label>
-					<div class="field">
-						<label class="label">Event#1 What's my one pick?!</label>
-						<label class="label" style="font-weight: 450;">곧 출시를 앞둔 뉴로핏 뇌혈관 분석 솔루션 3종 가운데, 가장 기대되는 제품을 선택하고 그 이유를 알려주세요~ 추첨을 통해 스타벅스 기프티콘을 선물로 드립니다!</label>
-						<div class="container" id="checkbox-container">
-							<div class="checkbox-wrapper-1">
-								<input id="example-6" class="substituted" type="checkbox" name="group2" aria-hidden="true" onclick="toggleCheckbox('group2', this)" />
-								<label class="label" for="example-6" style="font-weight: 500;">Perfusion CT 기반 급성 허혈성 뇌졸중 분석 솔루션, <b>Neurophet SCALE CTP</b></label>
-								<input name="SCALE CTP" type="text" class="text-input" style="max-width: 100%; box-sizing: border-box;" placeholder="예: Perfusion image 분석 솔루션의 도입/교체 등을 검토 중이에요" />
-							</div>
-							<div class="checkbox-wrapper-1">
-								<input id="example-7" class="substituted" type="checkbox" name="group2" aria-hidden="true" onclick="toggleCheckbox('group2', this)" />
-								<label class="label" for="example-7" style="font-weight: 500;">SWI/GRE MRI 기반 뇌미세출혈 분석 솔루션, <b>Neurophet SCALE MRI</b></label>
-								<input name="SCALE MRI" type="text" class="text-input" style="max-width: 100%; box-sizing: border-box;" placeholder="예: CMB 관련 연구를 최근 진행하고 있어요" />
-							</div>
-							<div class="checkbox-wrapper-1">
-								<input id="example-8" class="substituted" type="checkbox" name="group2" aria-hidden="true" onclick="toggleCheckbox('group2', this)" />
-								<label class="label" for="example-8" style="font-weight: 500;">TOF-MRA 기반 뇌동맥류 분석 솔루션, <b>Neurophet SCALE MRA</b></label>
-								<input name="SCALE MRA" type="text" class="text-input" style="max-width: 100%; box-sizing: border-box;" placeholder="예: 뇌동맥류 환자를 가장 많이 접해요" />
-							</div>
-						</div>
-					</div>
-					<div class="section" style="background-color:azure; margin-top: 2rem;">
-						<a href="https://www.figma.com/proto/AcheugEziz0yKYenSfPUSu/KSIN-SIC?page-id=0%3A1&node-id=4-5659&viewport=5078%2C14119%2C0.18&t=D1z80xJZjxUiZt4j-8&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=4%3A5659&show-proto-sidebar=1&hide-ui=1" target="_blank">
-							<img src="assets\img\logo\SCALE CTP\ctp_logo_large.png" style="width: 30%; border-style:outset; padding: 0.6rem; opacity: 50%;"></a>
-					</div>
-					<div class="field">
-						<label class="label">EVENT#2 Join our closed Beta-tester</label>
-						<label class="label" style="font-weight: 500;">관심 제품을 가장 먼저 체험할 기회, 뉴로핏 비공식 베타 테스터를 모집합니다. 동료들과 참여할수록 더 큰 혜택이 기다리고 있어요. 뉴로핏 뇌졸중 솔루션의 시작, 함께 해보시겠어요? </label>
-						<div class="container" id="checkbox-container">
-							<div class="checkbox-wrapper-1">
-								<input id="example-9" class="substituted" type="checkbox" name="group3" aria-hidden="true" onclick="toggleCheckbox('group3', this)" />
-								<label class="label" for="example-9" style="font-weight: 500;"><b>네, 참여해볼게요!</b></label>
-							</div>
-							<div class="checkbox-wrapper-1">
-								<input id="example-10" class="substituted" type="checkbox" name="group3" aria-hidden="true" onclick="toggleCheckbox('group3', this)" />
-								<label class="label" for="example-10" style="font-weight: 500;"><b>아니요, 다음 기회에!</b></label>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- 약관동의 -->
-			<div class="field">
-				<div class="control">
-					<div class="checkbox-wrapper-1">
-						<input type="checkbox" name="Agree To Terms" value="Y" class="substituted" id="termsCheckbox" checked="on" disabled />
-						<label for="termsCheckbox">
-							<a id="termsLink" href="#" style="text-decoration: underline;">개인정보 수집 및 이용약관</a>을 확인하였으며, 이에 동의합니다. </label>
-					</div>
-				</div>
-			</div>
-			<!-- popup section -->
-			<div id="popup-wrap" class="popup-wrap">
-				<div class="popup-overlay"></div>
-				<div class="popup-content" style="padding: 50px;">
-					<a href="#" class="popup-close">&times;</a>
-					<h2 style="text-align: center; font-weight: bold;">개인정보 수집 및 이용 약관</h2>
-					<div class="popup-body">
-						<ul>
-							<li>개인정보 수집 및 이용 목적 <ul>
-									<li>문의 사항을 제출한 고객 식별.</li>
-									<li>문의 사항 답변 및 마케팅 활용 목적.</li>
-								</ul>
-							</li>
-							<li>수집하는 개인정보의 항목 <ul>
-									<li>필수항목 - 이름, 이메일주소,회사/기관명, 상세 문의 내용.</li>
-									<li>선택항목 - 전화번호.</li>
-								</ul>
-							</li>
-							<li>개인정보 보유 및 이용기간 <ul>
-									<li>Contact us 정보 - 개인정보의 수집 및 이용에 대한 동의를 철회하는 경우 또는 수집 및 이용목적이 달성한 경우.</li>
-								</ul>
-							</li>
-							<li>동의를 거부할 권리 및 동의 거부에 따른 제약 사항 <ul>
-									<li>정보주체는 개인정보 수집 및 이용 동의를 거부할 권리가 있음.</li>
-									<li>동의 거부 시에는 제공되는 서비스 이용이 불가함.</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			</div>
-			<!-- 제출 -->
-			<div class="field is-grouped" style="display: flex; justify-content: center; align-items: center; margin-bottom: 3rem;">
-				<div class="control" style="display: flex; justify-content: center; align-items: center; margin-bottom: 3rem;">
-					<button class="button is-primary" type="submit" id="submit-button" style="width: 300px"> 제출 </button>
-				</div>
-			</div>
-		</form>
-		<div id="message" style="display: none; margin: 20px; font-weight: bold; color: rgba(255, 0, 0, 0.667); padding: 8px; background-color: beige; border-radius: 4px; border-color: aquamarine;"></div>
-		<!-- Scroll Top -->
-		<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-		<!-- Vendor JS Files -->
-		<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-		<script src="assets/vendor/aos/aos.js"></script>
-		<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-		<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-		<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-		<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-		<!-- Main JS File -->
-		<script src="assets/js/main.js"></script>
-		<script src="assets/js/events.js"></script>
-	</body>
+    <form id="form" class="container" method="POST" style="align-items: center; justify-content: center;">
+                <div class="event-container">
+                    <!-- E-Guestbook Card -->
+                    <div class="event-card">
+                        <label class="label" style="font-size: xx-large; text-align: center; display: block;margin-bottom: 2rem;">
+                            <div class="seven">
+                                <h1><b>E-Guestbook</b></h1>
+                            </div>
+                        </label>
+                        <div class="section1" style="margin-bottom: 5rem;">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="field">
+                                        <label class="label">성함<h style="color: rgb(255, 0, 0)">*</h></label>
+                                        <div class="control">
+                                            <input class="input" type="text" placeholder="예: 김뉴로" name="성함" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="field">
+                                        <label class="label">회사/기관명<h style="color: red;"> *</h></label>
+                                        <div class="control">
+                                            <input class="input" type="text" placeholder="예: 뉴로핏종합병원" name="회사/기관명" required />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="field">
+                                        <label class="label">E-mail<h style="color: red;"> *</label>
+                                        <div class="control">
+                                            <input class="input" type="email" placeholder="예:neurophet@neurophet.com" name="E-mail" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="field">
+                                        <label class="label">연락처<h style="color: red;"> *</label>
+                                        <div class="control">
+                                            <input class="input" type="tel" placeholder="예:01029202002" name="연락처" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="label">진료과/소속부서</label>
+                            <div class="container" id="checkbox-container">
+                                <div class="checkbox-wrapper-1">
+                                    <input type="checkbox" name="진료과" id="example-1" class="substituted" aria-hidden="true" value="영상의학과" onclick="toggleCheckbox('진료과', this)" />
+                                    <label class="label" for="example-1" style="font-weight: 400;">영상의학과</label>
+                                </div>
+                                <div class="checkbox-wrapper-1">
+                                    <input type="checkbox" name="진료과" id="example-2" class="substituted" aria-hidden="true" value="신경과" onclick="toggleCheckbox('진료과', this)" />
+                                    <label class="label" for="example-2" style="font-weight: 400;">신경과</label>
+                                </div>
+                                <div class="checkbox-wrapper-1">
+                                    <input type="checkbox" name="진료과" id="example-3" class="substituted" aria-hidden="true" value="신경외과" onclick="toggleCheckbox('진료과', this)" />
+                                    <label class="label" for="example-3" style="font-weight: 400;">신경외과</label>
+                                </div>
+                                <div class="checkbox-wrapper-1">
+                                    <input type="checkbox" name="진료과" id="example-4" class="substituted" aria-hidden="true" value="재활의학과" onclick="toggleCheckbox('진료과', this)" />
+                                    <label class="label" for="example-4" style="font-weight: 400;">재활의학과</label>
+                                </div>
+                                <div class="checkbox-wrapper-1">
+                                    <input id="example-5" name="진료과" class="substituted" type="checkbox" aria-hidden="true" onclick="toggleCheckbox('진료과', this)" />
+                                    <label class="label" for="example-5" style="font-weight: 400;">직접 입력</label>
+                                    <input name="other" type="text" class="text-input" style="max-width: 100%; box-sizing: border-box;" placeholder="항목에 없는 경우 직접 입력해주세요(예: 연구부서 등)" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Special Events Card -->
+                    <div class="event-card">
+                        <label class="label" style="font-size: xx-large; text-align: center; display: block;margin-bottom: 3rem;">
+                            <div class="seven">
+                                <h1><b>Special events for ksin</b></h1>
+                            </div>
+                        </label>
+                        <div class="field">
+                            <label class="label">Event#1 What's my one pick?!</label>
+                            <label class="label" style="font-weight: 450;">곧 출시를 앞둔 뉴로핏 뇌혈관 분석 솔루션 3종 가운데, 가장 기대되는 제품을 선택하고 그 이유를 알려주세요~ 추첨을 통해 스타벅스 기프티콘을 선물로 드립니다!</label>
+                            <div class="container" id="checkbox-container">
+                                <div class="checkbox-wrapper-1">
+                                    <input id="example-6" class="substituted" type="checkbox" name="group2" aria-hidden="true" onclick="toggleCheckbox('group2', this)" />
+                                    <label class="label" for="example-6" style="font-weight: 500;">Perfusion CT 기반 급성 허혈성 뇌졸중 분석 솔루션, <b>Neurophet SCALE CTP</b></label>
+                                    <input name="SCALE CTP" type="text" class="text-input" style="max-width: 100%; box-sizing: border-box;" placeholder="예: Perfusion image 분석 솔루션의 도입/교체 등을 검토 중이에요" />
+                                </div>
+                                <div class="checkbox-wrapper-1">
+                                    <input id="example-7" class="substituted" type="checkbox" name="group2" aria-hidden="true" onclick="toggleCheckbox('group2', this)" />
+                                    <label class="label" for="example-7" style="font-weight: 500;">SWI/GRE MRI 기반 뇌미세출혈 분석 솔루션, <b>Neurophet SCALE MRI</b></label>
+                                    <input name="SCALE MRI" type="text" class="text-input" style="max-width: 100%; box-sizing: border-box;" placeholder="예: CMB 관련 연구를 최근 진행하고 있어요" />
+                                </div>
+                                <div class="checkbox-wrapper-1">
+                                    <input id="example-8" class="substituted" type="checkbox" name="group2" aria-hidden="true" onclick="toggleCheckbox('group2', this)" />
+                                    <label class="label" for="example-8" style="font-weight: 500;">TOF-MRA 기반 뇌동맥류 분석 솔루션, <b>Neurophet SCALE MRA</b></label>
+                                    <input name="SCALE MRA" type="text" class="text-input" style="max-width: 100%; box-sizing: border-box;" placeholder="예: 뇌동맥류 환자를 가장 많이 접해요" />
+                                </div>
+                            </div>
+                        </div> 
+                            <a href="https://www.figma.com/proto/AcheugEziz0yKYenSfPUSu/KSIN-SIC?page-id=0%3A1&node-id=4-5659&viewport=5078%2C14119%2C0.18&t=D1z80xJZjxUiZt4j-8&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=4%3A5659&show-proto-sidebar=1&hide-ui=1" target="_blank">
+                                <img src="assets\img\logo\SCALE CTP\ctp_logo_large.png" style="width: 30%; border-style:outset; padding: 0.6rem; opacity: 50%;"></a> 
+                        <div class="field">
+                            <label class="label">EVENT#2 Join our closed Beta-tester</label>
+                            <label class="label" style="font-weight: 500;">관심 제품을 가장 먼저 체험할 기회, 뉴로핏 비공식 베타 테스터를 모집합니다. 동료들과 참여할수록 더 큰 혜택이 기다리고 있어요. 뉴로핏 뇌졸중 솔루션의 시작, 함께 해보시겠어요? </label>
+                            <div class="container" id="checkbox-container">
+                                <div class="checkbox-wrapper-1">
+                                    <input id="example-9" class="substituted" type="checkbox" value="참여" name="EVENT3" aria-hidden="true" onclick="toggleCheckbox('group3', this)" />
+                                    <label class="label" for="example-9" style="font-weight: 500;"><b>네, 참여해볼게요!</b></label>
+                                </div>
+                                <div class="checkbox-wrapper-1">
+                                    <input id="example-10" class="substituted" type="checkbox" name="EVENT3"value="미참여"  aria-hidden="true" onclick="toggleCheckbox('group3', this)" />
+                                    <label class="label" for="example-10" style="font-weight: 500;"><b>아니요, 다음 기회에!</b></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+ <!-- 약관동의 -->
+<div class="field">
+    <div class="control">
+        <div class="checkbox-wrapper-1">
+            <input type="checkbox" name="개인정보동의" value="Y" class="substituted" id="termsCheckbox" checked="on" disabled />
+            <label for="termsCheckbox">
+                <a id="termsLink" href="#" style="text-decoration: underline;">[필수]개인정보 수집 및 이용약관</a>을 확인하였으며, 이에 동의합니다.
+            </label>
+        </div>
+    </div>
+</div>
 
-</html>
+<!-- 마케팅동의 -->
+<div class="field">
+    <div class="control">
+        <div class="checkbox-wrapper-1">
+            <input type="checkbox" name="마케팅동의" value="Y" class="substituted" id="marketingCheckbox" checked="on"/>
+            <label for="marketingCheckbox" >
+                <a id="marketingLink" href="#" style="text-decoration: underline;">[선택] 마케팅 활용 및 광고성 정보</a>을 확인하였으며, 정보 수신에 동의합니다.
+            </label>
+        </div>
+    </div>
+</div>
+
+<!-- 개인정보 수집 및 이용 팝업 -->
+<div class="popup-wrap" id="popup_terms">
+    <div class="popup-overlay" onclick="closePopup('popup_terms')"></div>
+    <div class="popup-content">
+        <a href="#" class="popup-close" onclick="closePopup('popup_terms')">&times;</a>
+        <h2><B>개인정보 수집 및 이용약관</B></h2>
+        <div class="popup-body" style="color: #222;">
+            <p class='t1'>1. 개인정보의 수집·이용 목적</p>
+            <p class='t2'>- 학술대회 참석자 확인</p>
+            <p class='t1'>2. 수집 ·이용하는 개인정보 항목</p>
+            <p class='t2'>- 성함, 회사/기관명, E-mail, 연락처, 진료과/소속부서</p>
+            <p class='t1'>3. 개인정보의 보유 및 이용기간</p>
+            <p class='t2'>- 동의 철회 시까지</p>
+            <p class='t1'>4. 이용자는 회사의 개인정보의 수집·이용 동의를 거부할 권리가 있습니다.</p>
+            <p class='t2'>- 다만, 개인정보의 수집·이용 동의를 거부할 경우 학술대회 참석자 확인, 이벤트 진행이 불가합니다.</p>
+        </div>
+    </div>
+</div>
+
+<!-- 마케팅 활용 및 광고성 정보 수신 동의 팝업 -->
+<div class="popup-wrap" id="popup_marketing">
+    <div class="popup-overlay" onclick="closePopup('popup_marketing')"></div>
+    <div class="popup-content">
+        <a href="#" class="popup-close" onclick="closePopup('popup_marketing')">&times;</a>
+        <h2><B>마케팅 활용 제공 및 광고성 정보 수신 동의</B></h2>
+        <div class="popup-body" style="color: #222;">
+            <p class='t1'>1. 개인정보의 수집·이용 목적</p>
+            <p class='t2'>- 뉴로핏의 새로운 서비스 출시 안내 등 다양한 이벤트, 혜택 정보를 이메일 등으로 받아 보실 수 있습니다. 본 동의는 언제든 취소할 수 있습니다.</p>
+            <p class='t1'>2. 수집하는 개인정보의 항목</p>
+            <p class='t2'>- 이름, 이메일, 연락처, 기관명/회사명</p>
+            <p class='t1'>3. 개인정보의 보유 및 이용기간</p>
+            <p class='t2'>- 동의 철회 시까지 </p>
+        </div>
+    </div>
+</div> 
+
+<!-- 제출 -->
+<div class="field is-grouped" style="display: flex; justify-content: center; align-items: center; margin-bottom: 3rem;">
+    <div class="control" style="display: flex; justify-content: center; align-items: center; margin-bottom: 3rem;">
+        <button class="button is-primary" type="submit" id="submit-button" style="width: 300px"> 제출 </button>
+    </div>
+</div>
+</form>
+            <div id="message" style="display: none; margin: 20px; font-weight: bold; color: rgba(255, 0, 0, 0.667); padding: 8px; background-color: beige; border-radius: 4px; border-color: aquamarine;"></div>
+            <!-- Scroll Top -->
+            <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+            <!-- Vendor JS Files -->
+            <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script src="assets/vendor/aos/aos.js"></script>
+            <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+            <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+            <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+            <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+            <!-- Main JS File -->
+            <script src="assets/js/main.js"></script>
+            <script src="assets/js/events.js"></script> 
+        </body>
+
+    </html>
