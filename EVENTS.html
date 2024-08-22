@@ -270,10 +270,38 @@
                 max-height: 200px;
             }
         }
+        #sidebar #header-wrapper {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ),url(assets/img/BG_SEA.jpg);
+}
+.neon { 
+    font-size: 60px; 
+    font-weight: 700; 
+    color: #fff; 
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); 
+    animation: neon-flicker 1s infinite alternate;
+} 
+@keyframes neon-flicker {
+    0% {
+        text-shadow: 
+        0 0 10px rgba(0, 255, 255, 0.7), 
+        0 0 20px rgba(0, 255, 255, 0.7), 
+        0 0 30px rgba(0, 255, 255, 0.7);
+    }
+    100% {
+        text-shadow: 
+        0 0 20px rgba(0, 255, 255, 0.7), 
+        0 0 30px rgba(0, 255, 255, 0.7), 
+        0 0 40px rgba(0, 255, 255, 0.7);
+    }
+}
+
+
     </style>
 </head>
-<body>
-    <header id="header" class="header sticky-top">
+<body> 
+    
+    <header id="header" class="header sticky-top" >  
+        <div class="background" style="background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ),url(assets/img/BG_SEA.jpg);" > 
         <div class="waviy" style="text-align: center;">
             <span style="--i:1; font-size:25px;">K</span>
             <span style="--i:2; font-size:25px;">S</span>
@@ -303,8 +331,9 @@
             <span style="--i:26; font-size:25px;">2</span>
             <span style="--i:27; font-size:25px;">0</span>
             <span style="--i:28; font-size:25px;">2</span>
-            <span style="--i:29; font-size:25px;">4</span>
+            <span style="--i:29; font-size:25px;" >4</span>
         </div>
+        </div>  
     </header>
 
     <form id="form" class="container" method="POST" style="align-items: center; justify-content: center;">
@@ -387,12 +416,12 @@
                             </div>
                         </label>
                         <div class="field">
-                            <label class="label"><span style="background: linear-gradient(to top, #ff0000 1%, transparent 50%)">EVENT#1 What's my one pick?!</span></label>
+                            <label class="label"><span style="background: linear-gradient(to top, #ff0000 1%, transparent 20%)">EVENT#1 What's my one pick?!</span></label>
                             <label class="label" style="font-weight: 450;">곧 출시될 뉴로핏 뇌혈관 분석 솔루션 3종 중 사용해보고 싶은 제품과 그 이유를 공유해주시면, 추첨을 통해 스타벅스 기프티콘을 드립니다!  </label>
                             <div class="container" id="checkbox-container">
                                 <div class="checkbox-wrapper-1">
                                     <input id="example-6" class="substituted" type="checkbox" name="group2" aria-hidden="true" onclick="toggleCheckbox('group2', this)" />
-                                    <label class="label" for="example-6" style="font-weight: 500;">Perfusion CT 기반 급성 허혈성 뇌졸중 분석 솔루션, <b>Neurophet SCALE CTP</b></label>
+                                    <label class="label" for="example-6" style="font-weight: 500;">관류 CT 기반 급성 허혈성 뇌졸중 분석 솔루션, <b>Neurophet SCALE CTP</b></label>
                                     <input name="SCALE CTP" type="text" class="text-input" style="max-width: 100%; box-sizing: border-box;" placeholder="예: Perfusion image 분석 솔루션의 도입/교체 등을 검토 중이에요" />
                                 </div>
                                 <div class="checkbox-wrapper-1">
@@ -410,7 +439,7 @@
 <br>
 
                         <div class="field">
-                            <label class="label"><span style="background: linear-gradient(to top, #ff0000 1%, transparent 50%)">EVENT#2 Join our closed Beta-tester</span></label>
+                            <label class="label"><span style="background: linear-gradient(to top, #ff0000 1%, transparent 20%)">EVENT#2 Join our closed Beta-tester</span></label>
                             <label class="label" style="font-weight: 500;">관심 제품을 가장 먼저 체험할 기회, 뉴로핏 비공식 베타 테스터를 모집합니다. 동료들과 참여할수록 더 큰 혜택이 기다리고 있어요. 뉴로핏 뇌졸중 솔루션의 시작, 함께 해보시겠어요? </label>
                             <div class="container" id="checkbox-container">
                                 <div class="checkbox-wrapper-1">
@@ -428,7 +457,7 @@
  <!-- 약관동의 -->
 <div class="field">
     <div class="control">
-        <div class="checkbox-wrapper-1">
+        <div class="checkbox-wrapper-1" style="transform: scale(0.8); align-content: start;">
             <input type="checkbox" name="개인정보동의" value="Y" class="substituted" id="termsCheckbox" checked="on" disabled />
             <label for="termsCheckbox">
                 <a id="termsLink" href="#" style="text-decoration: underline;">[필수]개인정보 수집 및 이용약관</a>을 확인하였으며, 이에 동의합니다.
@@ -452,7 +481,7 @@
 <!-- 개인정보 수집 및 이용 팝업 -->
 <div class="popup-wrap" id="popup_terms">
     <div class="popup-overlay" onclick="closePopup('popup_terms')"></div>
-    <div class="popup-content">
+    <div class="popup-content" style="max-width: 50%;">
         <a href="#" class="popup-close" onclick="closePopup('popup_terms')">&times;</a>
         <h2><B>개인정보 수집 및 이용약관</B></h2>
         <div class="popup-body" style="color: #222;">
@@ -463,7 +492,7 @@
             <p class='t1'>3. 개인정보의 보유 및 이용기간</p>
             <p class='t2'>- 동의 철회 시까지</p>
             <p class='t1'>4. 이용자는 회사의 개인정보의 수집·이용 동의를 거부할 권리가 있습니다.</p>
-            <p class='t2'>- 다만, 개인정보의 수집·이용 동의를 거부할 경우 학술대회 참석자 확인, 이벤트 진행이 불가합니다.</p>
+            <p class='t2'>- 개인정보의 수집·이용 동의를 거부할 경우 학술대회 참석자 확인, 이벤트 진행이 불가합니다.</p>
         </div>
     </div>
 </div>
@@ -471,7 +500,7 @@
 <!-- 마케팅 활용 및 광고성 정보 수신 동의 팝업 -->
 <div class="popup-wrap" id="popup_marketing">
     <div class="popup-overlay" onclick="closePopup('popup_marketing')"></div>
-    <div class="popup-content">
+    <div class="popup-content" style="max-width: 50%;">
         <a href="#" class="popup-close" onclick="closePopup('popup_marketing')">&times;</a>
         <h2><B>마케팅 활용 제공 및 광고성 정보 수신 동의</B></h2>
         <div class="popup-body" style="color: #222;">
