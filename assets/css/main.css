@@ -16510,133 +16510,7 @@
       height: auto
     }
   }
-  
-  .checkbox-wrapper-16 *,
-  .checkbox-wrapper-16 :after,
-  .checkbox-wrapper-16 :before {
-    box-sizing: border-box
-  }
-  
-  .checkbox-wrapper-16 .checkbox-icon img {
-    filter: grayscale(100%);
-    transition: filter .3s ease;
-    width: 60%;
-    height: auto
-  }
-  
-  .checkbox-wrapper-16 .checkbox-input:checked+.checkbox-tile .checkbox-icon img {
-    filter: grayscale(0)
-  }
-  
-  .checkbox-wrapper-16 .checkbox-input {
-    clip: rect(0 0 0 0);
-    -webkit-clip-path: inset(100%);
-    clip-path: inset(100%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px
-  }
-  
-  .checkbox-wrapper-16 .checkbox-input:checked+.checkbox-tile {
-    border-color: #4e38cc;
-    box-shadow: 0 15px 20px rgba(0, 0, 0, .1);
-    color: #4e38cc
-  }
-  
-  .checkbox-wrapper-16 .checkbox-input:checked+.checkbox-tile:before {
-    transform: scale(1.1);
-    opacity: 1;
-    background-color: #4e38cc;
-    border-color: #4e38cc;
-    margin: .5rem
-  }
-  
-  .checkbox-wrapper-16 .checkbox-input:checked+.checkbox-tile .checkbox-icon,
-  .checkbox-wrapper-16 .checkbox-input:checked+.checkbox-tile .checkbox-label {
-    color: #4e38cc
-  }
-  
-  .checkbox-wrapper-16 .checkbox-input:focus+.checkbox-tile {
-    border-color: #4e38cc;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .1), 0 0 0 4px #b5c9fc
-  }
-  
-  .checkbox-wrapper-16 .checkbox-input:focus+.checkbox-tile:before {
-    transform: scale(1);
-    opacity: 1
-  }
-  
-  .checkbox-wrapper-16 .checkbox-tile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 15rem;
-    min-height: 15rem;
-    border: 2px solid #b5bfd9;
-    border-radius: 10%;
-    background-color: #fff;
-    box-shadow: 0 15px 20px rgba(0, 0, 0, .1);
-    transition: .15s ease;
-    cursor: pointer;
-    position: relative;
-    padding: 30px;
-    padding-inline: 40px
-  }
-  
-  .checkbox-wrapper-16 .checkbox-tile:before {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 1.25rem;
-    height: 1.25rem;
-    border: 2px solid #b5bfd9;
-    background-color: #fff;
-    border-radius: 50%;
-    top: .25rem;
-    left: .25rem;
-    opacity: 0;
-    transform: scale(0);
-    transition: .25s ease;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192' fill='%23FFFFFF' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' fill='none'%3E%3C/rect%3E%3Cpolyline points='216 72.005 104 184 48 128.005' fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='32'%3E%3C/polyline%3E%3C/svg%3E");
-    background-size: 12px;
-    background-repeat: no-repeat;
-    background-position: 50% 50%
-  }
-  
-  .checkbox-wrapper-16 .checkbox-tile:hover {
-    border-color: #0048ff
-  }
-  
-  .checkbox-wrapper-16 .checkbox-tile:hover:before {
-    transform: scale(1);
-    opacity: 1
-  }
-  
-  .checkbox-wrapper-16 .checkbox-icon {
-    transition: .35s ease;
-    color: #494949
-  }
-  
-  .checkbox-wrapper-16 .checkbox-label {
-    color: #707070;
-    transition: 375ms ease;
-    text-align: center;
-    margin-top: 3REM
-  }
-  
-  .checkbox-wrapper-16 .checkbox-icon {
-    transition: .35s ease;
-    color: #494949;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%
-  }
-  
+   
   .popup-overlay,
   .popup-wrap {
     top: 0;
@@ -17255,7 +17129,7 @@
     height: 1.15em;
     width: 1.15em;
     margin-right: .6em;
-    color: rgba(0, 0, 0, .275);
+    color: red; 
     border: solid .06em;
     box-shadow: 0 0 .04em, 0 0 .06em .16em -.03em inset, 0 0 0 .07em transparent inset;
     border-radius: .2em;
@@ -17269,13 +17143,13 @@
   .checkbox-wrapper-1 [type=checkbox].substituted:enabled:active+label:before,
   .checkbox-wrapper-1 [type=checkbox].substituted:enabled+label:active:before {
     box-shadow: 0 0 .04em, 0 0 .06em .16em -.03em transparent inset, 0 0 0 .07em rgba(0, 0, 0, .1) inset;
-    background-color: #f0f0f0
+    background-color: red;  
   }
   
   .checkbox-wrapper-1 [type=checkbox].substituted:checked+label:before {
     background-color: #4E38CC;
     background-size: .75em;
-    color: rgba(0, 0, 0, .075)
+    color: red;
   }
   
   .checkbox-wrapper-1 [type=checkbox].substituted:checked:enabled:active+label:before,
