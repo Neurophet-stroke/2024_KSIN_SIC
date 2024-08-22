@@ -17147,7 +17147,7 @@
   }
   
   .checkbox-wrapper-1 [type=checkbox].substituted:checked+label:before {
-    background-color: #4E38CC;
+    background-color: red;
     background-size: .75em;
     color: red;
   }
