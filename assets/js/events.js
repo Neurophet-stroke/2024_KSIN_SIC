@@ -119,38 +119,24 @@ e.preventDefault();
 popupWrap.classList.remove("active");
 });
 });
+function toggleCheckbox(groupName, clickedCheckbox) {
+    // 모든 체크박스 선택
+    const checkboxes = document.querySelectorAll(`input[name="${groupName}"]`);
 
-const checkboxes = document.querySelectorAll('#checkbox-container .checkbox-input');
-checkboxes.forEach(checkbox => {
-checkbox.addEventListener('change', function() {
-if (this.checked) {
-checkboxes.forEach(otherCheckbox => {
-if (otherCheckbox !== this) {
-otherCheckbox.checked = false;
-}
-});
-}
-});
-});
-
-document.getElementById('cb5').addEventListener('change', function() {
-var additionalInfo = document.getElementById('additional-info');
-additionalInfo.style.display = this.checked ? 'block' : 'none';
-}); 
-
-function toggleCheckbox(group, element) {
-const checkboxes = document.querySelectorAll(`input[type="checkbox"][name=${group}]`);
-checkboxes.forEach(checkbox => {
-if (checkbox !== element) {
-checkbox.checked = false;
-}
-});
+    // 클릭된 체크박스만 선택하도록 설정
+    checkboxes.forEach(checkbox => {
+        if (checkbox !== clickedCheckbox) {
+            checkbox.checked = false;
+        }
+    });
 }
 
-document.querySelectorAll('input[type="checkbox"]').forEach(input => {
-if (input.id.startsWith('example-1') || input.id.startsWith('example-2') || input.id.startsWith('example-3') || input.id.startsWith('example-5')) {
-input.name = 'group1';
-} else if (input.id.startsWith('example-6') || input.id.startsWith('example-7') || input.id.startsWith('example-8')) {
-input.name = 'group2';
-}
+// DOMContentLoaded 이벤트 리스너를 통해 페이지 로드 후 초기화
+document.addEventListener('DOMContentLoaded', () => {
+    // 모든 체크박스에 toggleCheckbox 함수를 적용
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+        checkbox.addEventListener('click', function() {
+            toggleCheckbox(this.name, this);
+        });
+    });
 });
