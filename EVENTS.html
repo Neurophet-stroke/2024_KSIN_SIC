@@ -131,7 +131,7 @@
             background-color: #f9f9f9;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
-            min-width: 47%;
+            min-width: 45%;
         }
 
         .event-card img {
@@ -222,7 +222,7 @@
 
             .event-card {
                 width: 100%;
-                margin: 10px 0;
+                margin: 5px 0;
             }
 
             .row .col-md-6,
@@ -270,38 +270,13 @@
                 max-height: 200px;
             }
         }
-        #sidebar #header-wrapper {
-    background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ),url(assets/img/BG_SEA.jpg);
-}
-.neon { 
-    font-size: 60px; 
-    font-weight: 700; 
-    color: #fff; 
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); 
-    animation: neon-flicker 1s infinite alternate;
-} 
-@keyframes neon-flicker {
-    0% {
-        text-shadow: 
-        0 0 10px rgba(0, 255, 255, 0.7), 
-        0 0 20px rgba(0, 255, 255, 0.7), 
-        0 0 30px rgba(0, 255, 255, 0.7);
-    }
-    100% {
-        text-shadow: 
-        0 0 20px rgba(0, 255, 255, 0.7), 
-        0 0 30px rgba(0, 255, 255, 0.7), 
-        0 0 40px rgba(0, 255, 255, 0.7);
-    }
-}
-
-
+ 
     </style>
 </head>
 <body> 
     
     <header id="header" class="header sticky-top" >  
-        <div class="background" style="background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ),url(assets/img/BG_SEA.jpg);" > 
+        <div class="background" style="background-image: linear-gradient( rgba(255, 255, 255, 0.3), rgba(0, 26, 255, 0.3) ),url(assets/img/BG_SEA.jpg);" > 
         <div class="waviy" style="text-align: center;">
             <span style="--i:1; font-size:25px;">K</span>
             <span style="--i:2; font-size:25px;">S</span>
@@ -453,11 +428,13 @@
                             </div>
                         </div>
                     </div>
-                </div> 
+                </div>  
+
+ "
  <!-- 약관동의 -->
 <div class="field">
     <div class="control">
-        <div class="checkbox-wrapper-1" style="transform: scale(0.8); align-content: start;">
+        <div class="checkbox-wrapper-1">
             <input type="checkbox" name="개인정보동의" value="Y" class="substituted" id="termsCheckbox" checked="on" disabled />
             <label for="termsCheckbox">
                 <a id="termsLink" href="#" style="text-decoration: underline;">[필수]개인정보 수집 및 이용약관</a>을 확인하였으며, 이에 동의합니다.
@@ -477,7 +454,7 @@
         </div>
     </div>
 </div>
-
+</div>
 <!-- 개인정보 수집 및 이용 팝업 -->
 <div class="popup-wrap" id="popup_terms">
     <div class="popup-overlay" onclick="closePopup('popup_terms')"></div>
@@ -516,7 +493,7 @@
 
 <!-- 제출 -->
 <div class="field is-grouped" style="display: flex; justify-content: center; align-items: center; margin-bottom: 3rem;">
-    <div class="control" style="display: flex; justify-content: center; align-items: center; margin-bottom: 3rem;">
+    <div class="control" style="display: flex; justify-content: center; align-items: center; ">
         <button class="button is-primary" type="submit" id="submit-button" style="width: 300px"> 제출 </button>
     </div>
 </div>
